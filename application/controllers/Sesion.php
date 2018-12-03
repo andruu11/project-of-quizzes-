@@ -1,39 +1,32 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Session extends CI_Controller
+class Sesion extends CI_Controller
 {
 	public function index()
 	{
-		
 	}
 
 	public function login()
-	{
-		// Si ya accedido - redirigir al home
-		if ($this->session->userdata('acceso')) redirect('home');
-
-		// Cargamos la libreria de validacion de formulario
-		$this->load->library('form_validation');
-
-		// Definimos las reglas de validacion
-		$this->form_validation->set_rules('usuario', 'Nombre de usuario', 'trim|required');
-		$this->form_validation->set_rules('password', 'Contraseña', 'trim|required');
-
-		// Definimos los mensajes de validacion
-		$this->form_validation->set_message('required', "{field}: Campo requerido");	
+	{		
+		// if ($this->session->userdata('acceso')) redirect('home');
 		
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('email', 'Correo Electronico', 'trim|required');
+		$this->form_validation->set_rules('password', 'Contraseña', 'trim|required');
+		$this->form_validation->set_message('required', "{field}: Campo requerido");		
 
 		// Si se ha enviado el formulario - Comprobamos inicio de sesion - mostramos la vista de formulario
 		if ($this->form_validation->run()) 
-		{
-			$usuario 	= $this->input->post('usuario');
-			$password 	= $this->input->post('password');
-			$userdata 	= $this->Global_model->Get("usuario", "usuario", $usuario);			
+		{	
+			$this->load->model('One_model');
+			$userdata 	= $this->One_model->Get_where("usuario", array('email' => $this->input->post('email')));
+			print_r($userdata);
 
-			//Si el usuario existe - iniciamos sesion - mostramos nuevamente la vista de formulario
+			//Si el email existe - iniciamos sesion - mostramos nuevamente la vista de formulario
 			if ($userdata != NULL)
 			{
+				$password 	= $this->input->post('password');
 				// Si las contraseñas coinciden - iniciamos sesion - mostramos nuevamente la vista de formulario
 				if ($password == $this->encryption->decrypt($userdata->password)) 
 				{
@@ -54,7 +47,7 @@ class Session extends CI_Controller
 					// Cargamos la vista
 					$this->load->view('side/header', $data);
 					$this->load->view('side/nav', $data);
-					$this->load->view('login/index', $data);
+					$this->load->view('sesion/login', $data);
 					$this->load->view('side/footer');
 				}				
 			}			
@@ -68,7 +61,7 @@ class Session extends CI_Controller
 				// Cargamos la vista
 				$this->load->view('side/header', $data);
 				$this->load->view('side/nav', $data);
-				$this->load->view('login/index', $data);
+				$this->load->view('sesion/login', $data);
 				$this->load->view('side/footer');
 			}
 		} 
@@ -82,7 +75,7 @@ class Session extends CI_Controller
 			// Cargamos la vista
 			$this->load->view('side/header', $data);
 			$this->load->view('side/nav');
-			$this->load->view('login/index', $data);
+			$this->load->view('sesion/login', $data);
 			$this->load->view('side/footer');
 		}
 	}
