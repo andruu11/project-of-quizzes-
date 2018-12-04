@@ -9,7 +9,7 @@
 					<div class="module-body">
 						<div class="control-group">
 							<div class="controls row-fluid">
-								<input class="span12" type="text" name="email" placeholder="Correo Electronico">
+								<input class="span12" type="text" name="email" value="<?= set_value('email')?>" placeholder="Correo Electronico">
 							</div>
 						</div>
 						<div class="control-group">
@@ -29,6 +29,9 @@
 						</div>
 					</div>
 					<?php echo validation_errors('<div class="error">', '</div>'); ?>
+					<?php if ($login_failed): ?>						
+						<strong>Error:</strong> <?php echo $failed_message ?>
+					<?php endif ?>
 				</form>
 			</div>
 		</div>

@@ -5,6 +5,7 @@ class Sesion extends CI_Controller
 {
 	public function index()
 	{
+		// Lista de las sesiones iniciadas
 	}
 
 	public function login()
@@ -20,15 +21,10 @@ class Sesion extends CI_Controller
 		if ($this->form_validation->run()) 
 		{	
 			$this->load->model('One_model');
-			$userdata 	= $this->One_model->Get_where("usuario", array('email' => $this->input->post('email')));
-			print_r($userdata);
-
-			//Si el email existe - iniciamos sesion - mostramos nuevamente la vista de formulario
-			if ($userdata != NULL)
+			$userdata 	= $this->One_model->Get_where("usuario", array('email' => $this->input->post('email')));			
+			if (isset($userdata)) 
 			{
-				$password 	= $this->input->post('password');
-				// Si las contraseñas coinciden - iniciamos sesion - mostramos nuevamente la vista de formulario
-				if ($password == $this->encryption->decrypt($userdata->password)) 
+				if ($this->input->post('password') == $this->encryption->decrypt($userdata->password))
 				{
 					$data = array(
 						'idusuario' => $userdata->idusuario,
@@ -39,45 +35,55 @@ class Sesion extends CI_Controller
 				}
 				else
 				{
-					// Preparamos variables para la vista
 					$data['title'] 			= "Ingresar";
 					$data['_acceso'] 		= FALSE;
 					$data['login_failed'] 	= TRUE;
+					$data['failed_message']	= "No es correcto la contraseña";
 
-					// Cargamos la vista
 					$this->load->view('side/header', $data);
-					$this->load->view('side/nav', $data);
+					$this->load->view('side/nav');
 					$this->load->view('sesion/login', $data);
-					$this->load->view('side/footer');
-				}				
-			}			
+					$this->load->view('side/footer');	
+				}	
+			}
 			else
-			{
-				// Preparamos variables para la vista
+			{				
 				$data['title'] 			= "Ingresar";
 				$data['_acceso'] 		= FALSE;
 				$data['login_failed'] 	= TRUE;
-
-				// Cargamos la vista
+				$data['failed_message']	= "No existe el usuario con ese correo";
+				
 				$this->load->view('side/header', $data);
-				$this->load->view('side/nav', $data);
+				$this->load->view('side/nav');
 				$this->load->view('sesion/login', $data);
 				$this->load->view('side/footer');
-			}
-		} 
+			}			
+		}
 		else 
-		{
-			// Preparamos variables para la vista
+		{			
 			$data['title'] 			= "Ingresar";
 			$data['_acceso'] 		= FALSE;
 			$data['login_failed'] 	= FALSE;
-
-			// Cargamos la vista
+			$data['failed_message']	= "";
+		
 			$this->load->view('side/header', $data);
 			$this->load->view('side/nav');
 			$this->load->view('sesion/login', $data);
 			$this->load->view('side/footer');
 		}
+	}
+
+	public function logout()
+	{
+		// Si ya accedido - redirigir al home
+		if (!$this->session->userdata('acceso')) redirect('login');
+		$this->session->sess_destroy();
+		redirect(base_url());
+	}
+
+	public function recovery()
+	{
+		# code...
 	}
 }
 

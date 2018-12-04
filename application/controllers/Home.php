@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends CI_Controller 
 {
 	public function index()
-	{		
+	{				
 		$data['_acceso'] = $this->session->userdata('acceso') ? $this->session->userdata('acceso') : FALSE;
 		$data['title'] = 'Bienvenido al Test DISC';
 		

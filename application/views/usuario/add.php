@@ -35,7 +35,7 @@
 					</div>
 					<div class="module-foot">
 						<?php if ($login_failed): ?>						
-							<strong>Error:</strong> Las contraseñas no coinciden
+							<strong>Error:</strong> <?php echo $failed_message ?>
 						<?php endif ?>
 						<div class="control-group">
 							<div class="controls clearfix">

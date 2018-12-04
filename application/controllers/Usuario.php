@@ -30,7 +30,7 @@ class Usuario extends CI_Controller
 
 		$this->load->view('side/header', $data);
 		$this->load->view('side/nav', $data);
-		$this->load->view('usuarios/index', $data);
+		$this->load->view('usuario/index', $data);
 		$this->load->view('side/footer');
 	}
 
@@ -78,7 +78,8 @@ class Usuario extends CI_Controller
 				// Preparamos variables para la vista
 				$data['title'] 			= "Ingresar";
 				$data['_acceso'] 		= FALSE;
-				$data['login_failed'] 	= TRUE;
+				$data['register_failed']= TRUE;
+				$data['failed_message']	= "Las contraseñas no coinciden";
 
 				// Cargamos la vista
 				$this->load->view('side/header', $data);
@@ -90,8 +91,7 @@ class Usuario extends CI_Controller
 		else 
 		{
 			$data['title'] = "Nuevo Usuario";
-			$data['_acceso'] = $this->session->userdata('acceso') ? $this->session->userdata('acceso') : FALSE;
-			$data['login_failed'] 	= FALSE;
+			$data['_acceso'] = $this->session->userdata('acceso') ? $this->session->userdata('acceso') : FALSE;			
 
 			$this->load->view('side/header', $data);
 			$this->load->view('side/nav');
