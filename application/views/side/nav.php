@@ -26,18 +26,19 @@
 							<li><a href="#">A Separated link</a></li>
 						</ul>
 					</li>
-					<li><a href="#">Support </a></li>
+					<li><a href="#">Support </a></li>					
+					<li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<img src="<?php echo base_url('assets/images/user.png') ?>" class="nav-avatar" />
+						<b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							
+							<li><a href="#">Your Profile</a></li>
+							<li><a href="#">Edit Profile</a></li>
+							<li><a href="#">Account Settings</a></li>
+						</ul>
+					</li>
 					<?php if ($_acceso): ?>
-						<li class="nav-user dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<img src="assets/images/user.png" class="nav-avatar" />
-							<b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								
-								<li><a href="#">Your Profile</a></li>
-								<li><a href="#">Edit Profile</a></li>
-								<li><a href="#">Account Settings</a></li>
-							</ul>
-						</li>
+						<li><a href="<?php echo base_url("sesion/logout") ?>"><i class="menu-icon icon-signout"></i>Logout </a></li>
 					<?php else: ?>
 						<li><a href="<?php echo base_url("sesion/login") ?>">Iniciar Sesion </a></li>
 					<?php endif ?>
@@ -49,6 +50,7 @@
 <div class="wrapper">
 	<div class="container">
 		<div class="row">
+			<?php if ($_acceso): ?>
 			<div class="span3">
 				<div class="sidebar">
 
@@ -61,6 +63,21 @@
 						<li>
 							<a href="<?= base_url('usuario'); ?>">
 								<i class="menu-icon icon-bullhorn"></i>Usuarios
+							</a>
+						</li>
+						<li>
+							<a href="<?= base_url('etapa'); ?>">
+								<i class="menu-icon icon-bullhorn"></i>Etapas
+							</a>
+						</li>
+						<li>
+							<a href="<?= base_url('ejercicio'); ?>">
+								<i class="menu-icon icon-bullhorn"></i>Ejercicios
+							</a>
+						</li>
+						<li>
+							<a href="<?= base_url('sugerencia'); ?>">
+								<i class="menu-icon icon-bullhorn"></i>Sugerencia
 							</a>
 						</li>
 						<li>
@@ -97,8 +114,9 @@
 								<li><a href="other-user-listing.html"><i class="icon-inbox"></i>All Users </a></li>
 							</ul>
 						</li>
-						<li><a href="<?php echo base_url("sesion/logout") ?>"><i class="menu-icon icon-signout"></i>Logout </a></li>
+						
 					</ul>
 				</div>
 				<!--/.sidebar-->
 			</div>
+			<?php endif ?>

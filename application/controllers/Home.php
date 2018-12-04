@@ -5,8 +5,7 @@ class Home extends CI_Controller
 {
 	public function index()
 	{				
-		$data['_acceso'] = $this->session->userdata('acceso') ? $this->session->userdata('acceso') : FALSE;
-		$data['title'] = 'Bienvenido al Test DISC';
+		$data['_acceso'] = $this->session->userdata('acceso') ? $this->session->userdata('acceso') : FALSE;		
 		
 		$this->load->view('side/header', $data);
 		$this->load->view('side/nav');
