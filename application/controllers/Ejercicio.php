@@ -28,43 +28,74 @@ class Ejercicio extends CI_Controller
 
 	public function add()
 	{		
-		$this->load->library('form_validation');		
-		$this->form_validation->set_rules('nombre', 'Nombre', 'trim|required|min_length[5]|max_length[100]');
-		$this->form_validation->set_rules('audio', 'Audio', 'trim|required|min_length[5]|max_length[1000]');
-		$this->form_validation->set_rules('etapa', 'Etapa', 'trim|required|min_length[5]|max_length[12]');
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('nombre', 'Nombre', 'trim|required|max_length[100]');		
+		$this->form_validation->set_rules('etapa', 'Etapa', 'required');
 		$this->form_validation->set_message('required', "{field}: Campo requerido");
 		$this->form_validation->set_message('max_length', "{field} Excede el limite {param}");
 		
 		if ($this->form_validation->run()) 
-		{	
-			$nombre = $this->input->post('nombre',TRUE);
-			//Codigo para subir audio
-			$audio 	= $this->input->post('audio',TRUE);
-			$etapa = $this->input->post('etapa',TRUE);
-			$this->load->library('Uuid');
-			$idejercicio		= $this->uuid->v5($nombre);
-			
-			//Cargamos a la base de datos
-			$object = array(
-				'idejercicio'	=> $idejercicio,
-				'nombre'		=> $nombre,
-				'audio' 	=> $audio,
-				'etapa'		=> $etapa
-				);
-			$this->One_model->add('ejercicio', $object);
+		{
+			$etapa 					= $this->input->post('etapa',TRUE);
+			$nombre 				= $this->input->post('nombre', TRUE);
 
-			redirect('ejercicio');					
+			$config['upload_path'] 	= './uploads/audio/';
+			$config['allowed_types']= 'mp3|wav';
+			$config['max_size']  	= '1000';
+			$config['file_name']	= $nombre;
+			$config['file_ext_tolower'] = TRUE;			
+			
+			$this->load->library('upload', $config);			
+			
+			if ($this->upload->do_upload('audio'))
+			{				
+				$data = $this->upload->data();				
+				$this->load->library('Uuid');
+				$idejercicio= $this->uuid->v5($nombre);
+				$audio 		= $data['file_name'];
+				
+				$object = array(
+					'idejercicio'	=> $idejercicio,
+					'id_etapa'		=> $etapa,
+					'nombre'		=> $nombre,
+					'audio' 		=> $audio					
+					);
+				
+				$this->One_model->add('ejercicio', $object);
+				redirect('ejercicio');
+			}
+			else
+			{
+				$data['title'] 			= "Ingresar";
+				$data['Etapas']			= $this->One_model->Get('etapa',TRUE);
+				$data['_acceso'] 		= TRUE;				
+				$data['failed_message']	= $this->upload->display_errors();
+
+				$this->load->view('side/header', $data);
+				$this->load->view('side/nav', $data);
+				$this->load->view('ejercicio/add', $data);
+				$this->load->view('side/footer');	
+			}					
 		} 
-		else 
-		{			
-			$data['title'] = "Nuevo Ejercicio";
-			$data['_acceso'] = TRUE;
+		else
+		{
+			$data['title'] 	= "Nuevo Ejercicio";
+			$data['Etapas']	= $this->One_model->Get('etapa',TRUE);
+			$data['_acceso']= TRUE;
 			
 			$this->load->view('side/header', $data);
 			$this->load->view('side/nav', $data);
 			$this->load->view('ejercicio/add', $data);
 			$this->load->view('side/footer');
 		}
+	}
+
+	public function audio($audio)
+	{
+		$this->load->model('file');
+		$this->load->helper('download');
+		$file = 'uploads/audio/'.$audio;
+		force_download($file, NULL);
 	}
 }
 

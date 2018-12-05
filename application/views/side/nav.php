@@ -61,25 +61,53 @@
 							</a>
 						</li>
 						<li>
-							<a href="<?= base_url('usuario'); ?>">
-								<i class="menu-icon icon-bullhorn"></i>Usuarios
+							<a class="collapsed" data-toggle="collapse" href="#tpUsuario">
+								<i class="menu-icon icon-cog"></i>
+								<i class="icon-chevron-down pull-right"></i>
+								<i class="icon-chevron-up pull-right"></i>
+								Usuarios
 							</a>
+							<ul id="tpUsuario" class="collapse unstyled">
+								<li><a href="<?= base_url('usuario'); ?>"><i class="icon-inbox"></i>Lista </a></li>
+								<li><a href="<?= base_url('usuario/add'); ?>"><i class="icon-inbox"></i>Nuevo </a></li>
+							</ul>
 						</li>
 						<li>
-							<a href="<?= base_url('etapa'); ?>">
-								<i class="menu-icon icon-bullhorn"></i>Etapas
+							<a class="collapsed" data-toggle="collapse" href="#tpEtapa">
+								<i class="menu-icon icon-cog"></i>
+								<i class="icon-chevron-down pull-right"></i>
+								<i class="icon-chevron-up pull-right"></i>
+								Etapas
 							</a>
+							<ul id="tpEtapa" class="collapse unstyled">
+								<li><a href="<?= base_url('etapa'); ?>"><i class="icon-inbox"></i>Lista </a></li>
+								<li><a href="<?= base_url('etapa/add'); ?>"><i class="icon-inbox"></i>Nuevo </a></li>
+							</ul>
 						</li>
 						<li>
-							<a href="<?= base_url('ejercicio'); ?>">
-								<i class="menu-icon icon-bullhorn"></i>Ejercicios
+							<a class="collapsed" data-toggle="collapse" href="#tpEjercicios">
+								<i class="menu-icon icon-cog"></i>
+								<i class="icon-chevron-down pull-right"></i>
+								<i class="icon-chevron-up pull-right"></i>
+								Ejercicios
 							</a>
+							<ul id="tpEjercicios" class="collapse unstyled">
+								<li><a href="<?= base_url('ejercicio'); ?>"><i class="icon-inbox"></i>Lista </a></li>
+								<li><a href="<?= base_url('ejercicio/add'); ?>"><i class="icon-inbox"></i>Nuevo </a></li>
+							</ul>
 						</li>
 						<li>
-							<a href="<?= base_url('sugerencia'); ?>">
-								<i class="menu-icon icon-bullhorn"></i>Sugerencia
+							<a class="collapsed" data-toggle="collapse" href="#tpSugerencias">
+								<i class="menu-icon icon-cog"></i>
+								<i class="icon-chevron-down pull-right"></i>
+								<i class="icon-chevron-up pull-right"></i>
+								Sugerencias
 							</a>
-						</li>
+							<ul id="tpSugerencias" class="collapse unstyled">
+								<li><a href="<?= base_url('sugerencia'); ?>"><i class="icon-inbox"></i>Lista </a></li>
+								<li><a href="<?= base_url('sugerencia/add'); ?>"><i class="icon-inbox"></i>Nuevo </a></li>
+							</ul>
+						</li>					
 						<li>
 							<a href="#">
 								<i class="menu-icon icon-bullhorn"></i>News Feed
@@ -105,16 +133,19 @@
 					<!--/.widget-nav-->
 					
 					<ul class="widget widget-menu unstyled">
-						<li><a class="collapsed" data-toggle="collapse" href="#togglePages"><i class="menu-icon icon-cog">
-						</i><i class="icon-chevron-down pull-right"></i><i class="icon-chevron-up pull-right">
-						</i>More Pages </a>
+						<li>
+							<a class="collapsed" data-toggle="collapse" href="#togglePages">
+								<i class="menu-icon icon-cog"></i>
+								<i class="icon-chevron-down pull-right"></i>
+								<i class="icon-chevron-up pull-right"></i>
+								More Pages
+							</a>
 							<ul id="togglePages" class="collapse unstyled">
 								<li><a href="other-login.html"><i class="icon-inbox"></i>Login </a></li>
 								<li><a href="other-user-profile.html"><i class="icon-inbox"></i>Profile </a></li>
 								<li><a href="other-user-listing.html"><i class="icon-inbox"></i>All Users </a></li>
 							</ul>
-						</li>
-						
+						</li>						
 					</ul>
 				</div>
 				<!--/.sidebar-->

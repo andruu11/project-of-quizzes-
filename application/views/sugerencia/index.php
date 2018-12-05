@@ -2,28 +2,28 @@
 	<div class="content">
 		<div class="module">
 			<div class="module-head">
-				<h3>Ejercicios</h3>
+				<h3>Sugerencia</h3>
 			</div>
 			<div class="module-body">
 				<table class="table">
 					<thead>
 						<tr>
-							<td>Etapa</td>
+							<td>Ejercicio</td>
 							<td>Nombre</td>
-							<td>Audio</td>
+							<td>Imagen</td>
+							<td>Respuesta</td>
 							<td>Acción</td>
 						</tr>	
 					</thead>
 					<tbody>
 						<tr>
-							<?php foreach ($Ejercicios as $ejercicio): ?>
-								<td><?php echo $ejercicio->id_etapa ?></td>
-								<td><?php echo $ejercicio->nombre ?></td>
-								<td>									
-									<audio controls="controls" autoplay="autoplay">
-										<source src="<?php echo 'uploads/audio/'.$ejercicio->audio ?>" />
-									</audio>										
+							<?php foreach ($Sugerencias as $Sugerencias): ?>
+								<td><?php echo $Sugerencias->id_ejercicio ?></td>
+								<td><?php echo $Sugerencias->nombre ?></td>
+								<td>
+									<img src="<?php echo base_url().'uploads/images/'.$Sugerencias->imagen ?>" class="img-polaroid" width="75">
 								</td>
+								<td><?php echo $Sugerencias->respuesta ?></td>
 								<td></td>
 							<?php endforeach ?>
 						</tr>	
