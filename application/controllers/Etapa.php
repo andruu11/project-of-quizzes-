@@ -29,8 +29,8 @@ class Etapa extends CI_Controller
 	public function add()
 	{		
 		$this->load->library('form_validation');		
-		$this->form_validation->set_rules('nombre', 'Nombre', 'trim|required|min_length[5]|max_length[100]');
-		$this->form_validation->set_rules('descripcion', 'Descripcion', 'trim|required|min_length[5]|max_length[1000]');				
+		$this->form_validation->set_rules('nombre', 'Nombre', 'trim|required|max_length[100]');
+		$this->form_validation->set_rules('descripcion', 'Descripcion', 'trim|required|max_length[1000]');				
 		$this->form_validation->set_message('required', "{field}: Campo requerido");
 		$this->form_validation->set_message('max_length', "{field} Excede el limite {param}");
 		
@@ -39,16 +39,14 @@ class Etapa extends CI_Controller
 			$nombre 		= $this->input->post('nombre',TRUE);
 			$descripcion 	= $this->input->post('descripcion',TRUE);
 			$this->load->library('Uuid');
-			$idetapa		= $this->uuid->v5($nombre);
+			$idetapa		= $this->uuid->v5($nombre);			
 			
-			//Cargamos a la base de datos
 			$object = array(
 				'idetapa' 		=> $idetapa,
 				'nombre'		=> $nombre,
 				'descripcion' 	=> $descripcion,
 				);
 			$this->One_model->add('etapa', $object);
-
 			redirect('etapa');					
 		} 
 		else 

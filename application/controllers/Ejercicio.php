@@ -91,8 +91,7 @@ class Ejercicio extends CI_Controller
 	}
 
 	public function audio($audio)
-	{
-		$this->load->model('file');
+	{		
 		$this->load->helper('download');
 		$file = 'uploads/audio/'.$audio;
 		force_download($file, NULL);

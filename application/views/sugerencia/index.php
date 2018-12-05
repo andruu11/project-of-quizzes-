@@ -7,26 +7,25 @@
 			<div class="module-body">
 				<table class="table">
 					<thead>
-						<tr>
-							<td>Ejercicio</td>
+						<tr>							
 							<td>Nombre</td>
-							<td>Imagen</td>
-							<td>Respuesta</td>
+							<td>Imagen</td>							
 							<td>Acción</td>
 						</tr>	
 					</thead>
 					<tbody>
+						<?php foreach ($Sugerencias as $sugerencia): ?>
 						<tr>
-							<?php foreach ($Sugerencias as $Sugerencias): ?>
-								<td><?php echo $Sugerencias->id_ejercicio ?></td>
-								<td><?php echo $Sugerencias->nombre ?></td>
-								<td>
-									<img src="<?php echo base_url().'uploads/images/'.$Sugerencias->imagen ?>" class="img-polaroid" width="75">
-								</td>
-								<td><?php echo $Sugerencias->respuesta ?></td>
-								<td></td>
-							<?php endforeach ?>
-						</tr>	
+							<td><?php echo $sugerencia->nombre ?></td>
+							<td>
+								<img src="<?php echo base_url().'uploads/images/'.$sugerencia->imagen ?>" class="img-polaroid" width="75">
+							</td>							
+							<td>
+								<a href="<?php echo base_url('sugerencia/edit/').$sugerencia->idsugerencia ?>"><i class="menu-icon icon-pencil"></i></a>
+								<a href="<?php echo base_url('sugerencia/delete/').$sugerencia->idsugerencia ?>"><i class="menu-icon icon-trash"></i></a>
+							</td>							
+						</tr>
+						<?php endforeach ?>
 					</tbody>
 				</table>
 			</div>

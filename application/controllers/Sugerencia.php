@@ -28,10 +28,8 @@ class Sugerencia extends CI_Controller
 
 	public function add()
 	{		
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules('ejercicio', 'Ejercicio', 'required');
-		$this->form_validation->set_rules('nombre', 'Nombre', 'trim|required|max_length[100]');
-		$this->form_validation->set_rules('respuesta', 'Respuesta', 'required');
+		$this->load->library('form_validation');		
+		$this->form_validation->set_rules('nombre', 'Nombre', 'trim|required|max_length[100]');		
 		$this->form_validation->set_message('required', "{field}: Campo requerido");
 		$this->form_validation->set_message('max_length', "{field} Excede el limite {param}");
 		
@@ -50,17 +48,13 @@ class Sugerencia extends CI_Controller
 			{
 				$data 			= $this->upload->data();
 				$this->load->library('Uuid');
-				$idsugerencia	= $this->uuid->v5($nombre);
-				$ejercicio 		= $this->input->post('ejercicio',TRUE);
-				$imagen			= $data['file_name'];
-				$respuesta 		= $this->input->post('respuesta',TRUE);
+				$idsugerencia	= $this->uuid->v5($nombre);				
+				$imagen			= $data['file_name'];				
 				
 				$object = array(
-					'idsugerencia'	=> $idsugerencia,
-					'id_ejercicio'	=> $ejercicio,
+					'idsugerencia'	=> $idsugerencia,					
 					'imagen'		=> $imagen,
-					'nombre'		=> $nombre,
-					'respuesta' 	=> $respuesta					
+					'nombre'		=> $nombre				
 					);
 				
 				$this->One_model->add('sugerencia', $object);
@@ -68,8 +62,7 @@ class Sugerencia extends CI_Controller
 			}
 			else
 			{
-				$data['title'] 			= "Ingresar";
-				$data['Ejercicios']		= $this->One_model->Get('ejercicio',TRUE);
+				$data['title'] 			= "Ingresar";				
 				$data['_acceso'] 		= TRUE;				
 				$data['failed_message']	= $this->upload->display_errors();
 
@@ -81,8 +74,7 @@ class Sugerencia extends CI_Controller
 		} 
 		else 
 		{			
-			$data['title'] 		= "Nuevo Sugerencia";
-			$data['Ejercicios']	= $this->One_model->Get('ejercicio',TRUE);
+			$data['title'] 		= "Nuevo Sugerencia";			
 			$data['_acceso']	= TRUE;
 			
 			$this->load->view('side/header', $data);

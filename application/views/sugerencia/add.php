@@ -5,18 +5,7 @@
 				<h3>Nueva sugerencia</h3>
 			</div>
 			<div class="module-body">
-				<form action="<?php echo base_url();?>sugerencia/add" enctype="multipart/form-data" method="post" accept-charset="utf-8" class="form-horizontal row-fluid">
-					<div class="control-group">
-						<label class="control-label" for="basicinput">Ejercicio</label>
-						<div class="controls">
-							<select name="ejercicio" data-placeholder="Selecciona una etapa" class="span8">
-								<option value="">Selecciona una ejercicio</option>
-								<?php foreach ($Ejercicios as $ejercicio): ?>
-									<option value="<?php echo $ejercicio->idejercicio ?>"><?php echo $ejercicio->nombre ?></option>
-								<?php endforeach ?>
-							</select>
-						</div>
-					</div>
+				<form action="<?php echo base_url();?>sugerencia/add" enctype="multipart/form-data" method="post" accept-charset="utf-8" class="form-horizontal row-fluid">					
 					<div class="control-group">
 						<label class="control-label" for="basicinput">Imagen</label>
 						<div class="controls">
@@ -25,22 +14,9 @@
 						</div>
 					</div>							
 					<div class="control-group">
-						<label class="control-label" for="nombre">Nombre de la imagen</label>
+						<label class="control-label" for="nombre">Nombre alternativo</label>
 						<div class="controls">
 							<input type="text" id="nombre" name="nombre" class="span8">
-						</div>
-					</div>
-					<div class="control-group">
-						<label class="control-label" for="nombre">Respuesta Correcta?</label>
-						<div class="controls">
-							<label class="radio inline">
-								<input type="radio" name="respuesta" id="respueta1" value="1">
-								Si
-							</label> 
-							<label class="radio inline">
-								<input type="radio" name="respuesta" id="respueta2" value="0">
-								NO
-							</label> 
 						</div>
 					</div>
 					<div class="control-group">

@@ -1,11 +1,11 @@
 <div class="span9">
 	<div class="content">
-
 		<div class="module">
 			<div class="module-head">
 				<h3>Nueva etapa</h3>
 			</div>
 			<div class="module-body">
+				<?php echo validation_errors('<p class="text-error">','</p>');?>
 				<form class="form-horizontal row-fluid" method="POST" action="<?php echo base_url("etapa/add") ?>">
 					<div class="control-group">
 						<label class="control-label" for="nombre">Nombre</label>
@@ -22,7 +22,14 @@
 					</div>
 					<div class="control-group">
 						<div class="controls">
-							<button type="submit" class="btn">Enviar</button>
+							<button type="submit" class="btn">Enviar</button>							
+						</div>
+					</div>
+					<div class="control-group">
+						<div class="controls">
+							<?php if (isset($failed_message)): ?>
+								<?php echo $failed_message ?>
+							<?php endif ?>
 						</div>
 					</div>
 				</form>

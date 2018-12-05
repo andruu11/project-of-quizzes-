@@ -15,14 +15,14 @@
 						</tr>	
 					</thead>
 					<tbody>
-						<tr>
-							<?php foreach ($Etapas as $etapa): ?>
-								<td><?php echo $etapa->nombre ?></td>
-								<td><?php echo $etapa->descripcion ?></td>
-								<td><?php echo $etapa->status ?></td>
-								<td></td>
-							<?php endforeach ?>
-						</tr>	
+						<?php foreach ($Etapas as $etapa): ?>
+						<tr>							
+							<td><?php echo $etapa->nombre ?></td>
+							<td><?php echo $etapa->descripcion ?></td>
+							<td><?php echo $etapa->status ?></td>
+							<td></td>
+						</tr>
+						<?php endforeach ?>
 					</tbody>
 				</table>
 			</div>

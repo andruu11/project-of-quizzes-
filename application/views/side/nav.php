@@ -57,7 +57,7 @@
 					<ul class="widget widget-menu unstyled">
 						<li class="active">
 							<a href="index.html">
-								<i class="menu-icon icon-dashboard"></i>Dashboard
+								<i class="menu-icon icon-pencil"></i>Dashboard
 							</a>
 						</li>
 						<li>
@@ -96,6 +96,18 @@
 								<li><a href="<?= base_url('ejercicio/add'); ?>"><i class="icon-inbox"></i>Nuevo </a></li>
 							</ul>
 						</li>
+						<li>
+							<a class="collapsed" data-toggle="collapse" href="#tpRespuestas">
+								<i class="menu-icon icon-cog"></i>
+								<i class="icon-chevron-down pull-right"></i>
+								<i class="icon-chevron-up pull-right"></i>
+								Resultados
+							</a>
+							<ul id="tpRespuestas" class="collapse unstyled">
+								<li><a href="<?= base_url('respuesta'); ?>"><i class="icon-inbox"></i>Lista</a></li>
+								<li><a href="<?= base_url('respuesta/add'); ?>"><i class="icon-inbox"></i>Nuevo </a></li>
+							</ul>
+						</li>	
 						<li>
 							<a class="collapsed" data-toggle="collapse" href="#tpSugerencias">
 								<i class="menu-icon icon-cog"></i>

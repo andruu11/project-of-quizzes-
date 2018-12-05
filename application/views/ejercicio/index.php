@@ -15,18 +15,15 @@
 						</tr>	
 					</thead>
 					<tbody>
-						<tr>
-							<?php foreach ($Ejercicios as $ejercicio): ?>
-								<td><?php echo $ejercicio->id_etapa ?></td>
-								<td><?php echo $ejercicio->nombre ?></td>
-								<td>									
-									<audio controls="controls" autoplay="autoplay">
-										<source src="<?php echo 'uploads/audio/'.$ejercicio->audio ?>" />
-									</audio>										
-								</td>
-								<td></td>
-							<?php endforeach ?>
-						</tr>	
+						<?php foreach ($Ejercicios as $ejercicio): ?>
+						<tr>							
+							<td><?php echo $ejercicio->id_etapa ?></td>
+							<td><?php echo $ejercicio->nombre ?></td>
+							<td><a href="<?php echo base_url('ejercicio/audio/').$ejercicio->audio ?>"><?php echo $ejercicio->audio ?></a>	
+							</td>
+							<td></td>							
+						</tr>
+						<?php endforeach ?>
 					</tbody>
 				</table>
 			</div>
