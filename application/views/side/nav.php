@@ -68,7 +68,7 @@
 								Usuarios
 							</a>
 							<ul id="tpUsuario" class="collapse unstyled">
-								<li><a href="<?= base_url('usuario'); ?>"><i class="icon-inbox"></i>Lista </a></li>
+								<li><a href="<?= base_url('usuario'); ?>"><i class="icon-inbox"></i>Lista</a></li>
 								<li><a href="<?= base_url('usuario/add'); ?>"><i class="icon-inbox"></i>Nuevo </a></li>
 							</ul>
 						</li>
@@ -80,7 +80,7 @@
 								Etapas
 							</a>
 							<ul id="tpEtapa" class="collapse unstyled">
-								<li><a href="<?= base_url('etapa'); ?>"><i class="icon-inbox"></i>Lista </a></li>
+								<li><a href="<?= base_url('etapa'); ?>"><i class="icon-inbox"></i>Lista</a></li>
 								<li><a href="<?= base_url('etapa/add'); ?>"><i class="icon-inbox"></i>Nuevo </a></li>
 							</ul>
 						</li>
@@ -104,10 +104,22 @@
 								Sugerencias
 							</a>
 							<ul id="tpSugerencias" class="collapse unstyled">
-								<li><a href="<?= base_url('sugerencia'); ?>"><i class="icon-inbox"></i>Lista </a></li>
+								<li><a href="<?= base_url('sugerencia'); ?>"><i class="icon-inbox"></i>Lista</a></li>
 								<li><a href="<?= base_url('sugerencia/add'); ?>"><i class="icon-inbox"></i>Nuevo </a></li>
 							</ul>
-						</li>					
+						</li>
+						<li>
+							<a class="collapsed" data-toggle="collapse" href="#tpResultados">
+								<i class="menu-icon icon-cog"></i>
+								<i class="icon-chevron-down pull-right"></i>
+								<i class="icon-chevron-up pull-right"></i>
+								Resultados
+							</a>
+							<ul id="tpResultados" class="collapse unstyled">
+								<li><a href="<?= base_url('resultado'); ?>"><i class="icon-inbox"></i>Lista</a></li>
+								<li><a href="<?= base_url('resultado/add'); ?>"><i class="icon-inbox"></i>Nuevo </a></li>
+							</ul>
+						</li>	
 						<li>
 							<a href="#">
 								<i class="menu-icon icon-bullhorn"></i>News Feed
@@ -124,7 +136,7 @@
 					<!--/.widget-nav-->					
 					
 					<ul class="widget widget-menu unstyled">
-						<li><a href="ui-button-icon.html"><i class="menu-icon icon-bold"></i> Buttons </a></li>
+						<li><a href="<?= base_url('quizz'); ?>"><i class="menu-icon icon-bold"></i>Quizz</a></li>
 						<li><a href="ui-typography.html"><i class="menu-icon icon-book"></i>Typography </a></li>
 						<li><a href="form.html"><i class="menu-icon icon-paste"></i>Forms </a></li>
 						<li><a href="table.html"><i class="menu-icon icon-table"></i>Tables </a></li>

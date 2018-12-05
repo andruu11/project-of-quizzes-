@@ -1,35 +1,25 @@
-<form>
-	<span><?php echo $audio ?></span>
-	<input type="radio" name="<?php echo $ejercicio->sugerencia ?>" value="<?php echo $ejercicio->estado ?>">
-	<input type="radio" name="<?php echo $ejercicio->sugerencia ?>">
-	<input type="radio" name="pez">
-	<input type="radio" name="pajaro">
-</form>
-<form>
-	<span><?php echo $audio ?></span>
-	<input type="radio" name="gato">
-	<input type="radio" name="<?php echo $ejercicio->sugerencia ?>">
-	<input type="radio" name="pez">
-	<input type="radio" name="pajaro">
-</form>
-<form>
-	<span><?php echo $audio ?></span>
-	<input type="radio" name="gato">
-	<input type="radio" name="<?php echo $ejercicio->sugerencia ?>">
-	<input type="radio" name="pez">
-	<input type="radio" name="pajaro">
-</form>
-<form>
-	<span><?php echo $audio ?></span>
-	<input type="radio" name="gato">
-	<input type="radio" name="<?php echo $ejercicio->sugerencia ?>">
-	<input type="radio" name="pez">
-	<input type="radio" name="pajaro">
-</form>
-<form>
-	<span></span>
-	<input type="radio" name="<?php echo $ejercicio->sugerencia ?>">
-	<input type="radio" name="perro">
-	<input type="radio" name="pez">
-	<input type="radio" name="pajaro">
-</form>
+<div class="span9">
+	<div class="content">
+			<div class="btn-box-row row-fluid">
+				<a href="#" class="btn-box big span6">
+					<i class="icon-adjust"></i>
+					<b>Alimentos</b>
+				</a>
+				<a href="#" class="btn-box big span6">
+					<i class="icon-briefcase"></i>
+					<b>Ropa</b>
+				</a>
+			</div>
+			<div class="btn-box-row row-fluid">
+				<a href="#" class="btn-box big span6">
+					<i class="icon-adjust"></i>
+					<b>Objetos</b>
+				</a>
+				<a href="#" class="btn-box big span6">
+					<i class="icon-briefcase"></i>
+					<b>Objetos Peligrosos</b>
+				</a>
+			</div>
+		</div>
+	</div><!--/.content-->
+</div><!--/.span9-->

@@ -11,7 +11,7 @@
 						<label class="control-label" for="nombre">Nombre</label>
 						<div class="controls">
 							<input type="text" id="nombre" name="nombre" class="span8">
-							<span class="help-inline">mínimo 5 caracteres</span>
+							<span class="help-inline">Mínimo 5 caracteres</span>
 						</div>
 					</div>
 					<div class="control-group">
