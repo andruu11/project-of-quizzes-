@@ -12,6 +12,17 @@ class Respuesta_model extends CI_Model
 		$this->db->order_by('e.nombre', 'asc');
 		return $this->db->get()->result();
 	}
+
+	public function Get_by_ejercicio($idejercicio)
+	{
+		$query = 'SELECT `r`.`idrespuesta`, `r`.`respuesta`, `s`.`nombre`, `s`.`imagen`
+			FROM `respuesta` `r`
+			LEFT JOIN `ejercicio` `e` ON `r`.`id_ejercicio` = `e`.`idejercicio`
+			LEFT JOIN `sugerencia` `s` ON `r`.`id_sugerencia` = `s`.`idsugerencia`
+			WHERE `id_ejercicio` = "'.$idejercicio.'"
+			ORDER BY RAND()';		
+		return $this->db->query($query)->result();
+	}
 }
 
 /* End of file Respuesta_model.php */
