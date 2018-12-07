@@ -325,7 +325,7 @@ class One_model extends CI_Model
 	{
 		$this->db->select($field);
 		$this->db->from($table1);
-		$this->db->join($table2, $condicion, $join);				
+		$this->db->join($table2, $condition, $join);				
 		if($allrows)
 		{
 			if(isset($params) && !empty($params))

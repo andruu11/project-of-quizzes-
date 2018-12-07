@@ -18,7 +18,14 @@ class Ejercicio extends CI_Controller
  		$data['_editar'] = FALSE;
 		$data['_borrar'] = FALSE;
 
-		$data['Ejercicios'] = $this->One_model->get("Ejercicio", TRUE);
+		$data['Ejercicios'] = $this->One_model->Get_join(
+			"ej.idejercicio, et.nombre AS etapa, ej.nombre, audio", 
+			'ejercicio ej', 
+			'etapa et', 
+			'ej.id_etapa = et.idetapa', 
+			'LEFT',
+			TRUE
+		);
 		
 		$this->load->view('side/header', $data);
 		$this->load->view('side/nav');
@@ -87,6 +94,20 @@ class Ejercicio extends CI_Controller
 			$this->load->view('side/nav', $data);
 			$this->load->view('ejercicio/add', $data);
 			$this->load->view('side/footer');
+		}
+	}
+
+	public function delete($idejercicio)
+	{
+		$Ejercicio = $this->One_model->Get_where("ejercicio", array('idejercicio' => $idejercicio));
+		if (isset($Ejercicio->idejercicio)) 
+		{
+			$this->One_model->Delete("ejercicio",  array('idejercicio' => $idejercicio));			
+			redirect('ejercicio');
+		}
+		else
+		{
+			show_error('El ejercicio actualmente no existe');
 		}
 	}
 

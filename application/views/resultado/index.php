@@ -9,20 +9,15 @@
 						<td>Nombre de usuario</td>
 						<td>Puntaje final</td>
 						<td>Fecha</td>
-						<td>Acción</td>
 					</tr>
 				</thead>
 				<tbody>
 					<?php foreach ($Resultados as $resultado): ?>
 					<tr>						
 						<td><?php echo $resultado->idresultado ?></td>
-						<td><?php echo $resultado->id_usuario ?></td>
+						<td><?php echo $resultado->nombre ?> <?php echo $resultado->apellido ?></td>
 						<td><?php echo $resultado->resultado ?></td>
-						<td><?php echo $resultado->fecha?></td>
-						<td>
-							<a href="<?php echo base_url('resultado/edit/').$resultado->idresultado ?>"><i class="menu-icon icon-pencil"></i></a>
-							<a href="<?php echo base_url('resultado/delete/').$resultado->idresultado ?>"><i class="menu-icon icon-trash"></i></a>
-						</td>							
+						<td><?php echo $resultado->fecha?></td>					
 					</tr>
 					<?php endforeach ?>
 				</tbody>

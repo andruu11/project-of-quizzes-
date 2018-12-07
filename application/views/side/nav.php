@@ -11,20 +11,7 @@
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="user_menu">			
-			<ul class="nav navbar-nav navbar-right">
-				<?php if ($_acceso): ?>
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Basico <span class="caret"></span></a>
-					<ul class="dropdown-menu">						
-						<li><a href="<?= base_url('etapa'); ?>"><span class="icon-inbox"></span> Etapas</a></li>
-						<li><a href="<?= base_url('ejercicio'); ?>"><span class="icon-inbox"></span> Ejercicios</a></li>
-						<li><a href="<?= base_url('respuesta'); ?>"><span class="icon-inbox"></span> Respuestas</a></li>
-						<li><a href="<?= base_url('resultado'); ?>"><span class="icon-inbox"></span> Resultados</a></li>
-						<li><a href="<?= base_url('sugerencia'); ?>"><span class="icon-inbox"></span> Sugerencia</a></li>
-						<li><a href="<?= base_url('usuario'); ?>"><span class="icon-inbox"></span> Usuarios</a></li>
-					</ul>
-				</li>
-				<?php endif ?>
+			<ul class="nav navbar-nav navbar-right">				
 				<?php if ($_acceso): ?>
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Avanzado <span class="caret"></span></a>
@@ -33,7 +20,8 @@
 						<li><a href="<?= base_url('ejercicio'); ?>"><span class="icon-inbox"></span> Ejercicios</a></li>
 						<li><a href="<?= base_url('respuesta'); ?>"><span class="icon-inbox"></span> Respuestas</a></li>
 						<li><a href="<?= base_url('resultado'); ?>"><span class="icon-inbox"></span> Resultados</a></li>
-						<li><a href="<?= base_url('sugerencia'); ?>"><span class="icon-inbox"></span> Sugerencia</a></li>
+						<li><a href="<?= base_url('sugerencia'); ?>"><span class="icon-inbox"></span> Sugerencias</a></li>
+						<li><a href="<?= base_url('reporte'); ?>"><span class="icon-inbox"></span> Reportes</a></li>
 						<li><a href="<?= base_url('usuario'); ?>"><span class="icon-inbox"></span> Usuarios</a></li>
 					</ul>
 				</li>

@@ -8,7 +8,7 @@
 						<span href="#" class="curso">
 							<div class="center">
 								<span>
-									<i class="fas fa-<?php echo $etapa->fa_icon ?>"></i>
+									<i class="fas fa-<?php echo $etapa->icono ?>"></i>
 								</span>
 							</div>
 							<div class="progress"></div>

@@ -21,7 +21,7 @@ class Usuario extends CI_Controller
 	public function index()
 	{
 		$data['title'] 		= 'Usuarios';		
-		$data['Usuarios'] 	= $this->One_model->Get('usuario');
+		$data['Usuarios'] 	= $this->One_model->Get('usuario',TRUE);
 
 		$data['_acceso'] = TRUE;
 		$data['_nuevo']	 = TRUE;
@@ -56,7 +56,8 @@ class Usuario extends CI_Controller
 				$idusuario	= $this->uuid->v5('email');
 				$nombre 	= $this->input->post('nombre');
 				$apellido 	= $this->input->post('apellido');
-				$email 		= $this->input->post('email');			
+				$email 		= $this->input->post('email');
+				$fecha_nacimiento = $this->input->post('fecha_nacimiento');
 				$password 	= $this->encryption->encrypt($this->input->post('password'));
 				$creado		= date('Y-m-d H:i:s');
 
@@ -66,12 +67,13 @@ class Usuario extends CI_Controller
 					'apellido' 	=> $apellido,
 					'email' 	=> $email,
 					'password' 	=> $password,
+					'fecha_nacimiento' => $fecha_nacimiento,
 					'creado'	=> $creado,
-					'status'	=> 1				
+					'status'	=> 1,
+					'rol'		=> 'pac'
 					);			
 				$this->One_model->Add("usuario", $record);
-				print_r($record);
-				redirect('Usuario','refresh');
+				redirect('Usuario');
 			}
 			else
 			{
@@ -112,7 +114,7 @@ class Usuario extends CI_Controller
 	public function edit($idusuario)
 	{
 		// Preparamos el adjetivo
-		$data['Usuario'] = $this->One_model->get('usuario', 'idusuario', $idusuario);
+		$data['Usuario'] = $this->One_model->Get_where('usuario', array('idusuario' => $idusuario));
 
 		// Si existe el adjtivo en la BD - Abrimos el formulario de edicion
 		if (isset($data['Usuario']->idusuario)) 
@@ -121,7 +123,7 @@ class Usuario extends CI_Controller
 			$this->load->library('form_validation');
 
 			// Definimos las reglas de validacion
-			$this->form_validation->set_rules('usuario', 'Nombre de usuario', 'trim|required|max_length[1000]');
+			$this->form_validation->set_rules('nombre', 'Nombre de usuario', 'trim|required|max_length[1000]');
 
 			// Definimos los mensajes de validacion
 			$this->form_validation->set_message('required', "{field}: Campo requerido");
@@ -130,18 +132,34 @@ class Usuario extends CI_Controller
 			// Si se ha enviado el formulario - Modificamos adjetivo en la BD - mostramos la vista de modificar adjetivo
 			if ($this->form_validation->run())
 			{			
-				$object = array('usuario' => $this->input->post('usuario'));
-				$this->One_model->update('usuario', 'idusuario', $idusuario, $object);
-				redirect('usuarios');
+				$nombre 	= $this->input->post('nombre');
+				$apellido 	= $this->input->post('apellido');
+				$email 		= $this->input->post('email');
+				$fecha_nacimiento = $this->input->post('fecha_nacimiento');
+				$modificado	= date('Y-m-d H:i:s');
+				$status		= $this->input->post('status');
+				$rol		= $this->input->post('rol');
+
+				$object = array(
+					'idusuario' => $idusuario,
+					'nombre' 	=> $nombre,
+					'apellido' 	=> $apellido,
+					'fecha_nacimiento' => $fecha_nacimiento,
+					'modificado'	=> $modificado,
+					'status'	=> $status,
+					'rol'		=> $rol
+					);	
+				$this->One_model->Update('usuario', array('idusuario' => $idusuario), $object);
+				redirect('usuario');
 			} 
 			else 
 			{
-				$data['title'] 		= 'Editar usuario: '.$data['Usuario']->usuario;
+				$data['title'] 		= 'Editar usuario: '.$data['Usuario']->nombre;
 				$data['_acceso'] 	= TRUE;
 
 				$this->load->view('side/header', $data);
 				$this->load->view('side/nav', $data);
-				$this->load->view('usuarios/edit', $data);
+				$this->load->view('usuario/edit', $data);
 				$this->load->view('side/footer');
 			}
 		}

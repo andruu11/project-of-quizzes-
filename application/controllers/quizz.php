@@ -106,38 +106,12 @@ class Quizz extends CI_Controller
 				break;
 		}
 		$data['P']		= $p;
-		$data['title'] 	= 'Quizz';
+		$data['title'] 	= 'Resultados';
 		$data['_acceso']= TRUE;
 		$this->load->view('side/header',$data);
 		$this->load->view('side/nav',$data);
 		$this->load->view('quizz/resultado',$data);
 		$this->load->view('side/footer',$data);	
-
-
-		// $id_etapa 	= $idetapa;
-		// $id_usuario = $this->session->userdata('idusuario');
-		// $resulta
-		// $ejercicio 		= $this->input->post('ejercicio',TRUE);
-		// $imagen			= $data['file_name'];
-		// $respuesta 		= $this->input->post('respuesta',TRUE);
-		
-		// $object = array(
-		// 	'idsugerencia'	=> $idsugerencia,
-		// 	'id_ejercicio'	=> $ejercicio,
-		// 	'imagen'		=> $imagen,
-		// 	'nombre'		=> $nombre,
-		// 	'respuesta' 	=> $respuesta					
-		// 	);
-		
-		// $this->One_model->add('sugerencia', $object);
-		
-		// foreach ($this->input->post() as $ejercicio => $respuesta) 
-		// {
-		// 	echo "Ejercicio:".$ejercicio."<br>";
-		// 	echo "Respuesta:".$respuesta."<br>";
-		// }
-
-		// redirect('sugerencia');
 	}
 }
 
