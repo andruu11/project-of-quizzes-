@@ -18,7 +18,7 @@ class Resultado extends CI_Controller
  		$data['_editar'] = FALSE;
 		$data['_borrar'] = FALSE;
 
-		$data['Ejercicios'] = $this->One_model->get("Resultado", TRUE);
+		$data['Resultados'] = $this->One_model->get("Resultado", TRUE);
 		
 		$this->load->view('side/header', $data);
 		$this->load->view('side/nav', $data);

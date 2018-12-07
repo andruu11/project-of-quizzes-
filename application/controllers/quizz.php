@@ -54,7 +54,7 @@ class Quizz extends CI_Controller
 			'id_usuario'	=> $idusuario,
 			'fecha'			=> $fecha,
 		);
-		$this->One_model->Add('resultado', $object);
+		//$this->One_model->Add('resultado', $object);
 
 		//Nuevo marcados
 		$data['Ejercicios'] = $this->One_model->Get_where('ejercicio', array('id_etapa' => $idetapa), TRUE);		
@@ -65,7 +65,7 @@ class Quizz extends CI_Controller
 				'id_resultado' => $idresultado,
 				'id_respuesta' => $idrespuesta
 			);
-			$this->One_model->Add('marcado', $object);
+			//$this->One_model->Add('marcado', $object);
 		}
 
 		// Calculo del Puntaje
@@ -80,8 +80,16 @@ class Quizz extends CI_Controller
 				$puntaje = $puntaje + 2;
 			}
 		}
+		//$this->One_model->Update('resultado',array('idresultado'=>$idresultado),array('resultado'=>$puntaje));
 
-		$this->One_model->Update('resultado',array('idresultado'=>$idresultado),array('resultado'=>$puntaje));		
+		//Mostrar resultados
+		$data['Resultados'] = $this->One_model->Get('resultado', TRUE);
+		$data['title'] 	 = 'Quizz';
+		$data['_acceso'] = TRUE;
+		$this->load->view('side/header',$data);
+		$this->load->view('side/nav',$data);
+		$this->load->view('quizz/resultado',$data);
+		$this->load->view('side/footer',$data);	
 
 
 		// $id_etapa 	= $idetapa;
