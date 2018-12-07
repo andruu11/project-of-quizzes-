@@ -23,6 +23,14 @@ class Respuesta_model extends CI_Model
 			ORDER BY RAND()';		
 		return $this->db->query($query)->result();
 	}
+
+	public function Get_repuesta($idrespuesta)
+	{
+		$this->db->select('respuesta');
+		$this->db->from('respuesta');
+		$this->db->where('idrespuesta', $idrespuesta);
+		return $this->db->get()->row();
+	}
 }
 
 /* End of file Respuesta_model.php */

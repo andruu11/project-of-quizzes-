@@ -58,7 +58,7 @@ class Usuario extends CI_Controller
 				$apellido 	= $this->input->post('apellido');
 				$email 		= $this->input->post('email');			
 				$password 	= $this->encryption->encrypt($this->input->post('password'));
-				$creado		= date('Y-m-d H:i:s');			
+				$creado		= date('Y-m-d H:i:s');
 
 				$record = array(
 					'idusuario' => $idusuario,

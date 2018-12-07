@@ -1,6 +1,7 @@
 <div class="span9">
 	<div class="content">
-		<form>
+		<h2><?php echo $Etapa->nombre ?></h2>
+		<form action="<?php echo base_url().'quizz/resultado/'.$Etapa->idetapa;?>"  method="post">
 		<?php foreach ($Ejercicios as $ejercicio): ?>
 			<audio controls>
 				<source src="<?php echo base_url('ejercicio/audio/').$ejercicio->audio ?>">
