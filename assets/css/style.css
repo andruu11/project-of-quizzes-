@@ -203,12 +203,10 @@ span.curso {
   background-color: #F1F3F4;
   padding: 25px 0; }
 
-.opcion {
-  width: 95%;
+.opcion {  
+  height: 200px;  
   border: 2px solid #BDBDBD;
-  border-radius: 5px;
-  padding: 1rem;
-  margin: 5px 5px;
+  border-radius: 5px;    
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -218,11 +216,12 @@ span.curso {
   flex-direction: column;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center; }
+  justify-content: center;  
+}
 
 .sonidos {
   width: 100%;
-  margin: 5px 5px; }
+  margin: 5px 20px; }
 
 .boton-opciones {
   width: 51%;
@@ -245,8 +244,7 @@ span.curso {
 
 .inputGroup {
   background-color: #F1F3F4;
-  display: block;
-  margin: 10px 0;
+  display: block;  
   position: relative; }
   .inputGroup label {
     padding: 12px 30px;
@@ -322,3 +320,85 @@ span.curso {
     transform: translateY(-50%);
     cursor: pointer;
     visibility: hidden; }
+    /***Index***/
+    .header-page {
+      top: 0;
+      width: 100%;
+      min-height: 80vh;
+      background-image: url(../fondo.jpg);
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+      position: relative;
+      overflow: hidden;
+      color: #FAFAFA;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center; }
+
+    img.logo {
+      width: 40px;
+      margin: 10px 0; }
+
+    .botones-header {
+      margin-top: 250px; }
+
+    .btn-header {
+      font-size: 1.8rem;
+      padding: 1.5rem 2rem;
+      margin: 0 10px; }
+
+    img.uno {
+      width: 90%;
+      margin: auto; }
+
+    .content-page {
+      margin: 200px 0; }
+
+    footer {
+      background-color: #397cc7;
+      padding: 20px 0;
+      color: #FAFAFA; }
+
+    /********PUNTAJE*********/
+    .puntaje {
+      width: 90%;
+      margin: auto;
+      background: #FFF;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      padding-top: 50px; }
+
+    .puntaje-title {
+      background-color: #397cc7;
+      padding: 15px;
+      text-align: center;
+      color: #FAFAFA;
+      width: 100%;
+      margin-bottom: 100px; }
+
+    @media screen and (min-width: 680px) {
+      .puntaje {
+        margin: 200px 0;
+        width: 50%;
+        margin: auto;
+        background: #FFF;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center; } }
+

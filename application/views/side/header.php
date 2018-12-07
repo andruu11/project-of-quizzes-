@@ -8,6 +8,7 @@
     <link type="text/css" href="<?= base_url().'assets/bootstrap/css/bootstrap.min.css'; ?>" rel="stylesheet">
     <link type="text/css" href="<?= base_url().'assets/bootstrap/css/bootstrap-responsive.min.css'; ?>" rel="stylesheet">    
     <link type="text/css" href="<?= base_url().'assets/css/style.css'; ?>" rel="stylesheet">
+    <link type="text/css" href="<?= base_url().'assets/css/circle.css'; ?>" rel="stylesheet">
     <link type="text/css" href="<?= base_url().'assets/images/icons/css/font-awesome.css'; ?>" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
