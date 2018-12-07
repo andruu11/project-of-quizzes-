@@ -28,10 +28,11 @@ class Sesion extends CI_Controller
 				{
 					$data = array(
 						'idusuario' => $userdata->idusuario,
+						'rol'		=> $userdata->rol,
 						'acceso' 	=> TRUE
 						);
 					$this->session->set_userdata($data);
-					redirect('home','refresh');
+					redirect('quizz','refresh');
 				}
 				else
 				{

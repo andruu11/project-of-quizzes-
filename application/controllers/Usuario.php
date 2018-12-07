@@ -14,12 +14,12 @@ class Usuario extends CI_Controller
 		parent::__construct();
 
 		// Cargamos los modelos global		
-		$this->load->model('One_model');		
-		if (!$this->session->userdata('acceso')) redirect('session/login');
+		$this->load->model('One_model');
 	}
 
 	public function index()
 	{
+		if (!$this->session->userdata('acceso')) redirect('sesion/login');
 		$data['title'] 		= 'Usuarios';		
 		$data['Usuarios'] 	= $this->One_model->Get('usuario',TRUE);
 
@@ -93,7 +93,7 @@ class Usuario extends CI_Controller
 		else 
 		{
 			$data['title'] = "Nuevo Usuario";
-			$data['_acceso'] = $this->session->userdata('acceso') ? $this->session->userdata('acceso') : FALSE;			
+			$data['_acceso'] = FALSE;			
 
 			$this->load->view('side/header', $data);
 			$this->load->view('side/nav');
@@ -113,6 +113,7 @@ class Usuario extends CI_Controller
 	*/
 	public function edit($idusuario)
 	{
+		if (!$this->session->userdata('acceso')) redirect('sesion/login');
 		// Preparamos el adjetivo
 		$data['Usuario'] = $this->One_model->Get_where('usuario', array('idusuario' => $idusuario));
 
