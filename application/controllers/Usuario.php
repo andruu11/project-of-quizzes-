@@ -115,7 +115,7 @@ class Usuario extends CI_Controller
 	{
 		if (!$this->session->userdata('acceso')) redirect('sesion/login');
 		// Preparamos el adjetivo
-		$data['Usuario'] = $this->One_model->Get_where('usuario', array('idusuario' => $idusuario));
+		$data['Usuario'] = $this->One_model->Get_where('usuario', array('idusuario' => $idusuario));		
 
 		// Si existe el adjtivo en la BD - Abrimos el formulario de edicion
 		if (isset($data['Usuario']->idusuario)) 
@@ -155,8 +155,10 @@ class Usuario extends CI_Controller
 			} 
 			else 
 			{
-				$data['title'] 		= 'Editar usuario: '.$data['Usuario']->nombre;
-				$data['_acceso'] 	= TRUE;
+				$data['title'] 			= 'Editar usuario: '.$data['Usuario']->nombre;
+				$data['Responsables']	= $this->One_model->Get_where('usuario', array('rol'=>'tut'),TRUE);
+				$data['Pacientes']		= $this->One_model->Get_where('usuario', array('rol'=>'pac'),TRUE);
+				$data['_acceso'] 		= TRUE;
 
 				$this->load->view('side/header', $data);
 				$this->load->view('side/nav', $data);

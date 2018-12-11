@@ -12,20 +12,35 @@
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="user_menu">			
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="<?= base_url('quizz');?>">Nuevo quizz</a></li>
+			<ul class="nav navbar-nav navbar-right">				
 				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Avanzado <span class="caret"></span></a>
-					<ul class="dropdown-menu">						
-						<li><a href="<?= base_url('etapa'); ?>"><span class="icon-inbox"></span> Etapas</a></li>
-						<li><a href="<?= base_url('ejercicio'); ?>"><span class="icon-inbox"></span> Ejercicios</a></li>
-						<li><a href="<?= base_url('respuesta'); ?>"><span class="icon-inbox"></span> Respuestas</a></li>
-						<li><a href="<?= base_url('resultado'); ?>"><span class="icon-inbox"></span> Resultados</a></li>
-						<li><a href="<?= base_url('sugerencia'); ?>"><span class="icon-inbox"></span> Sugerencias</a></li>
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menú <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+						<?php if ($this->session->userdata('rol') =='pac'): ?>
+							<li><a href="<?= base_url('quizz');?>">Nuevo quizz</a></li>
+						<?php endif ?>
 						<?php if ($this->session->userdata('rol') =='adm'): ?>
-						<li role="separator" class="divider"></li>
-						<li><a href="<?= base_url('reporte'); ?>"><span class="icon-inbox"></span> Reportes</a></li>
-						<li><a href="<?= base_url('usuario'); ?>"><span class="icon-inbox"></span> Usuarios</a></li>
+							<li><a href="<?= base_url('quizz');?>">Nuevo quizz</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="<?= base_url('etapa'); ?>"><span class="icon-inbox"></span> Etapas</a></li>
+							<li><a href="<?= base_url('ejercicio'); ?>"><span class="icon-inbox"></span> Ejercicios</a></li>
+							<li><a href="<?= base_url('respuesta'); ?>"><span class="icon-inbox"></span> Respuestas</a></li>						
+							<li><a href="<?= base_url('sugerencia'); ?>"><span class="icon-inbox"></span> Sugerencias</a></li>	
+							<li role="separator" class="divider"></li>
+							<li><a href="<?= base_url('responsabilidad'); ?>"><span class="icon-inbox"></span> Responsabilidades</a></li>
+							<li><a href="<?= base_url('resultado'); ?>"><span class="icon-inbox"></span> Resultados</a></li>
+							<li><a href="<?= base_url('reporte'); ?>"><span class="icon-inbox"></span> Reportes</a></li>
+							<li><a href="<?= base_url('usuario'); ?>"><span class="icon-inbox"></span> Usuarios</a></li>
+						<?php endif ?>
+						<?php if ($this->session->userdata('rol') =='tut'): ?>
+							<li><a href="<?= base_url('quizz');?>">Nuevo quizz</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="<?= base_url('etapa'); ?>"><span class="icon-inbox"></span> Etapas</a></li>
+							<li><a href="<?= base_url('ejercicio'); ?>"><span class="icon-inbox"></span> Ejercicios</a></li>
+							<li><a href="<?= base_url('respuesta'); ?>"><span class="icon-inbox"></span> Respuestas</a></li>						
+							<li><a href="<?= base_url('sugerencia'); ?>"><span class="icon-inbox"></span> Sugerencias</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="<?= base_url('responsabilidad'); ?>"><span class="icon-inbox"></span> Responsabilidades</a></li>
 						<?php endif ?>
 					</ul>
 				</li>

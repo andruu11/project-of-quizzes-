@@ -14,8 +14,10 @@
 		    <div class="thumbnail opcion">
 		        <img src="<?php echo base_url().'uploads/images/'.$respuesta->imagen ?>" >
 		        <div class="inputGroup caption">
-		        	<input id="<?php echo $respuesta->idrespuesta ?>"" type="radio" name="<?php echo $ejercicio->idejercicio ?>" value="<?php echo $respuesta->idrespuesta ?>">
-		        	<label for="<?php echo $respuesta->idrespuesta ?>"">Opción <?php echo $i;$i++; ?></label>
+		        	<input id="<?php echo $respuesta->idrespuesta ?>"" type="radio" name="<?php echo $ejercicio->idejercicio ?>" value="<?php echo $respuesta->idrespuesta ?>">	        		
+		        	<label for="<?php echo $respuesta->idrespuesta ?>"" class="col-sm-2">
+		        		<audio controls class="col-sm-10"><source src="<?php echo base_url().'uploads/audio/'.$respuesta->audio ?>"></audio>
+		        	</label>
 		        </div>
 		    </div>
 		    <?php endforeach ?>   

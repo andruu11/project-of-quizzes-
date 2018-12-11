@@ -18,7 +18,7 @@
 						<td><?php echo $ejercicio->etapa ?></td>
 						<td><?php echo $ejercicio->nombre ?></td>
 						<td><a href="<?php echo base_url('ejercicio/audio/').$ejercicio->audio ?>"><?php echo $ejercicio->audio ?></a></td>
-						<td>							
+						<td>
 							<a href="<?php echo base_url('ejercicio/delete/').$ejercicio->idejercicio ?>"><i class="menu-icon icon-trash"></i></a>
 						</td>
 					</tr>

@@ -15,7 +15,7 @@ class Respuesta_model extends CI_Model
 
 	public function Get_by_ejercicio($idejercicio)
 	{
-		$query = 'SELECT `r`.`idrespuesta`, `r`.`respuesta`, `s`.`nombre`, `s`.`imagen`
+		$query = 'SELECT `r`.`idrespuesta`, `r`.`respuesta`, `s`.`nombre`, `s`.`imagen`, `s`.`audio`
 			FROM `respuesta` `r`
 			LEFT JOIN `ejercicio` `e` ON `r`.`id_ejercicio` = `e`.`idejercicio`
 			LEFT JOIN `sugerencia` `s` ON `r`.`id_sugerencia` = `s`.`idsugerencia`
